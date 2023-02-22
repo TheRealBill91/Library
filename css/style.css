@@ -1,71 +1,113 @@
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 form {
-    width: 70%;
+  width: 50%;
+  outline: 1px solid black;
 }
 
-form>fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    height: auto;
+
+
+form > fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  border-style: none;
 }
 
 input[type="radio"] {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
 
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
 }
 
 input[type="radio"]:checked {
-    background-color: #333;
-    border-color: #333;
+  background-color: #333;
+  border-color: #333;
 }
 
 button[type="submit"] {
-    height: 25px;
-    font-size: 0.8rem;
+  height: 25px;
+  font-size: 0.8rem;
 }
 
 .bookDisplayContainer {
-    display: flex;
-    /* justify-content: space-evenly; */
-    flex-wrap: wrap;
-    gap: 32px;
-    width: 70%;
-    height: auto;
-    outline: 1px solid black;
-    padding: 8px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 50%;
+  height: auto;
+  outline: 1px solid black;
+  padding: 20px;
 }
 
-.bookDisplayContainer>div {
-    outline: 1px solid black;
-    height: 225px;
-    padding: 12px;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.3rem;
-    gap: 16px;
+.bookDisplayContainer > div {
+  outline: 1px solid black;
+  height: 225px;
+  padding: 12px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 16px;
+  flex: 1 1 auto;
 }
 
-.bookDisplayContainer>div>p {
-    margin: 0;
+.bookDisplayContainer > div > p {
+  margin: 0;
+}
+
+.bookDisplayContainer > div > button {
+  width: 70%;
+}
+
+input[type="checkbox"]:before {
+    content: '\2713';
+    font-size: 20px;
+    color: #292525;
+    position: absolute;
+    top: -6px;
+    left: -1px;
+    text-shadow: 1px 1px #444;
+    opacity: 0;
+    transition: all 0.1s ease;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  position: relative;
 }
 
 
-.bookDisplayContainer>div>button {
-    width: 70%;
+input[type="checkbox"]:checked:before {
+  opacity: 1;
+}
+
+  
+  
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
 }
