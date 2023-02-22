@@ -7,7 +7,9 @@ let radioButtonValue;
 const form = document.getElementById("form");
 let deleteButton;
 
-let myLibrary = [];
+let myLibrary = [
+  {title: "Expert Web Dev", author: "John Appleseed", pages: "200", read: "Not Read", removeBook: "Delete" }
+];
 
 function Book(title, author, pages, read, removeBook) {
   this.title = title;
@@ -36,8 +38,6 @@ function getRadioButtonValue() {
   return radioButtonValue;
 }
 
-const checkbox = document.getElementById("read");
-// checkbox.addEventListener("change", getRadioButtonValue);
 
 form.addEventListener("submit", addBookToLibrary);
 
@@ -65,6 +65,7 @@ function addBookToLibrary(event) {
 }
 
 function displayEachBook() {
+  // Reset the book display container after each book submission
   bookDisplayContainer.innerHTML = "";
 
   let p;
@@ -75,24 +76,28 @@ function displayEachBook() {
     cardDiv.classList.add(`bookCard-${i}`);
     let book = myLibrary[i];
     let keys = Object.keys(book);
-    for (let i = 0; i < keys.length; i++) {
-      let key = keys[i];
+    for (let j = 0; j < keys.length; j++) {
+      let key = keys[j];
       let bookValue = book[key];
-      if (i < 3) {
+      if (j < 3) {
         p = document.createElement("p");
         p.textContent = bookValue;
         cardDiv.appendChild(p);
+      } else if (j === 3) {
+        button = document.createElement("button");
+        button.textContent = bookValue;
+        cardDiv.appendChild(button);
       } else {
         button = document.createElement("button");
+        button.classList.add("delete-button");
+        button.setAttribute('data-index', `${i}`)
         button.textContent = bookValue;
         cardDiv.appendChild(button);
       }
     }
+    cardDiv.setAttribute('data-index', `${i}`)
     bookDisplayContainer.appendChild(cardDiv);
   }
 }
 
-/* addBookToLibrary(); */
-
-/* const book1 = new Book('Harry Potter', 'J.K. Rowling', 256, true)
-const book2 = new Book('Lightning Thief', 'Some dude', 300, false) */
+displayEachBook();
