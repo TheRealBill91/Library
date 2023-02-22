@@ -5,12 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./app.js"></script>
+    <title>Book-Library</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./app.js" defer></script>
 </head>
 
 <body>
+    <main>
+        <form id="form">
+            <fieldset>
+                <legend>Enter your book's information</legend>
 
+                <label for="title">Book Title</label>
+                <input type="text" id="title" name="title">
+
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+
+                <label for="pages">Number of pages</label>
+                <input type="number" id="pages" name="num-of-pages">
+
+                <div class="radio-1">
+                    <label for="read-yes">Read</label>
+                    <input type="radio" name="read" id="read-yes" value="true">
+
+                    <label for="read-no">Not read</label>
+                    <input type="radio" name="read" id="read-no" value="false">
+                </div>
+
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+        <div class="bookDisplayContainer">
+            <div class="bookCard">
+                <p>title</p>
+                <p>author</p>
+                <p>pages</p>
+                <button>Not read</button>
+                <button>Delete</button>
+            </div>
+
+
+        </div>
+    </main>
 </body>
 
 </html>
