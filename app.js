@@ -56,7 +56,7 @@ function getRadioButtonValue() {
 form.addEventListener("submit", addBookToLibrary);
 
 function addBookToLibrary(event) {
-    /* console.log("Adding event listner..."); */
+    // Prevent default form submission behavior to avoid sending data to a server
     event.preventDefault();
     let inputValueOne = titleInput.value;
     let inputValueTwo = authorInput.value;
