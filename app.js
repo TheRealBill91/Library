@@ -8,6 +8,7 @@ let radioButtonValue;
 const form = document.getElementById("form");
 let deleteButton;
 let removeButtons;
+let readStatusChangeButtons;
 
 
 
@@ -24,18 +25,21 @@ function Book(title, author, pages, read, removeBook) {
 }
 
 const myLibrary = [
-    { title: "Expert Web Dev", author: "John Appleseed", pages: "200", read: "Not Read", removeBook: "Delete" }
+
 ];
 
-
+function addSampleBookObject() {
+    const sampleBookObject = new Book("Expert Web Dev", "John Appleseed", "200", "Not Read", this.removeBook);
+    myLibrary.push(sampleBookObject);
+}
 
 Book.prototype.info = function () {
-    if (this.read === true) {
-        this.read = "already read";
+    if (this.read === "Not Read") {
+        this.read = "Read";
     } else {
-        this.read = "not read yet";
+        this.read = "Not Read";
     }
-    return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+    return `${this.read}`;
 };
 
 function getRadioButtonValue() {
@@ -52,7 +56,7 @@ function getRadioButtonValue() {
 form.addEventListener("submit", addBookToLibrary);
 
 function addBookToLibrary(event) {
-    console.log("Adding event listner...");
+    /* console.log("Adding event listner..."); */
     event.preventDefault();
     let inputValueOne = titleInput.value;
     let inputValueTwo = authorInput.value;
@@ -60,15 +64,14 @@ function addBookToLibrary(event) {
     radioButtonValue = getRadioButtonValue();
     deleteButton = this.removeBook;
 
-    const book = new Book(
+    const myBook = new Book(
         inputValueOne,
         inputValueTwo,
         inputValueThree,
         radioButtonValue,
         deleteButton
     );
-    console.log("It is working...");
-    myLibrary.push(book);
+    myLibrary.push(myBook);
     displayEachBook();
     form.reset();
     /* console.log(myLibrary); */
@@ -97,6 +100,8 @@ function displayEachBook() {
                 cardDiv.appendChild(p);
             } else if (j === 3) {
                 button = document.createElement("button");
+                button.classList.add("read-status");
+                button.setAttribute('data-index', `${i}`)
                 button.textContent = bookValue;
                 cardDiv.appendChild(button);
             } else {
@@ -112,33 +117,53 @@ function displayEachBook() {
         // Queries newly added delete buttons
         removeButtons = document.querySelectorAll('.remove-button');
         // Adds event listeners to all delete buttons, including newly added delete buttons
-        deleteButtonsListen();
+        addDeleteBookButtonEventListeners();
+        // Queries newly added read status buttons
+        readStatusChangeButtons = document.querySelectorAll('.read-status');
+        // Adds event listeners to all read status buttons, including newly added read status buttons
+        addChangeReadStatusListener();
     }
 }
 
+addSampleBookObject();
 displayEachBook();
+// Queries all book delete buttons on page load (or reload)
 removeButtons = document.querySelectorAll('.remove-button');
 
-
-
-deleteButtonsListen();
-function deleteButtonsListen() {
+// adds event listener to each delete button on book div object
+addDeleteBookButtonEventListeners();
+function addDeleteBookButtonEventListeners() {
     removeButtons.forEach(button => button.addEventListener('click', deleteBookObject))
 }
+
 
 function deleteBookObject(event) {
     const buttonIndex = +(event.target.dataset.index);
     for (let i = 0; i < myLibrary.length; i++) {
         if (i === buttonIndex) {
             myLibrary.splice(i, 1);
-            console.log(removeButtons);
+            /* console.log(removeButtons); */
             displayEachBook();
         }
     }
 
 }
 
+readStatusChangeButtons = document.querySelectorAll('.read-status');
+function addChangeReadStatusListener() {
+    readStatusChangeButtons.forEach(button => button.addEventListener('click', changeBookReadStatus))
+}
 
-
+function changeBookReadStatus(event) {
+    const buttonIndex = +(event.target.dataset.index);
+    /* console.log(event.target.textContent) */
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (i === buttonIndex) {
+            let newReadStatus = myLibrary[i].info();
+            event.target.textContent = newReadStatus;
+            break;
+        }
+    }
+}
 
 
