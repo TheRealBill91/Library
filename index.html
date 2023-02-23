@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,36 +8,40 @@
     <script src="./app.js" defer></script>
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <form id="form">
-            <fieldset>
-                <legend>Enter your book's information</legend>
+      <button class="addBookModal">Add Book</button>
+      <div class="form-modal-background"></div>
+      <div class="form-container">
+        <button class="close-modal">X</button>
+      </div>
+      <form id="form">
+        <fieldset>
+          <legend>Enter your book's information</legend>
 
-                <label for="title">Book Title</label>
-                <input type="text" id="title" name="title" />
+          <label for="title">Book Title</label>
+          <input type="text" id="title" name="title" />
 
-                <label for="author">Author</label>
-                <input type="text" id="author" name="author" />
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" />
 
-                <label for="pages">Number of pages</label>
-                <input type="number" id="pages" name="num-of-pages" />
+          <label for="pages">Number of pages</label>
+          <input type="number" id="pages" name="num-of-pages" />
 
-                <div class="checkbox">
-                    <label for="read">Have you read it?</label>
-                    <input class="checkbox" type="checkbox" name="read" id="read" />
-                    <span class="checkmark"></span>
-                </div>
+          <div class="checkbox">
+            <label for="read">Have you read it?</label>
+            <input class="checkbox" type="checkbox" name="read" id="read" />
+            <span class="checkmark"></span>
+          </div>
 
-                <button type="submit">Submit</button>
-            </fieldset>
-        </form>
-        <div class="bookDisplayContainer">
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
 
-        </div>
+      
+      <div class="bookDisplayContainer"></div>
     </main>
-</body>
-
+  </body>
 </html>
