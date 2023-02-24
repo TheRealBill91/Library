@@ -132,7 +132,7 @@ button[type="submit"] {
   outline: 1px solid black;
   height: 225px;
   padding: 12px;
-  width: 45%;
+  width: 31%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,6 +147,12 @@ button[type="submit"] {
 
 .bookDisplayContainer > div > button {
   width: 70%;
+}
+
+.book-spine {
+    height: 100%;
+    width: 10%;
+    background-color: darkgray;
 }
 
 input[type="checkbox"]:before {

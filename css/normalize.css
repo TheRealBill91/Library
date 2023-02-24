@@ -8,10 +8,6 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-/* Apply border box to entire document */
-* {
-  box-sizing: border-box;
-}
 
 html {
   line-height: 1.15;
@@ -19,6 +15,11 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
+
+/* Apply border box to entire document */
+* {
+    box-sizing: border-box;
+  }
 
 /* Sections
      ========================================================================== */

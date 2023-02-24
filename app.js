@@ -1,7 +1,7 @@
 let titleInput = document.getElementById("title");
 let authorInput = document.getElementById("author");
 let pagesInput = document.getElementById("pages");
-let checkedInput = document.getElementById("read");
+// let checkedInput = document.getElementById("read");
 const bookDisplayContainer = document.querySelector(".bookDisplayContainer");
 let radioButtonValue;
 const addBookButton = document.querySelector(".addBookModal");
@@ -11,7 +11,7 @@ const form = document.getElementById("form");
 const closeModalButton = document.querySelector(".close-modal");
 let deleteButton;
 let removeButtons;
-let readStatusChangeButtons;
+let changeReadStatusButtons;
 
 function Book(title, author, pages, read, removeBook) {
   this.title = title;
@@ -117,7 +117,7 @@ function displayEachBook() {
     // Adds event listeners to all delete buttons, including newly added delete buttons
     addDeleteBookButtonEventListeners();
     // Queries newly added read status buttons
-    readStatusChangeButtons = document.querySelectorAll(".read-status");
+    changeReadStatusButtons = document.querySelectorAll(".read-status");
     // Adds event listeners to all read status buttons, including newly added read status buttons
     addChangeReadStatusListener();
   }
@@ -147,9 +147,9 @@ function deleteBookObject(event) {
   }
 }
 
-readStatusChangeButtons = document.querySelectorAll(".read-status");
+changeReadStatusButtons = document.querySelectorAll(".read-status");
 function addChangeReadStatusListener() {
-  readStatusChangeButtons.forEach((button) =>
+  changeReadStatusButtons.forEach((button) =>
     button.addEventListener("click", changeBookReadStatus)
   );
 }
