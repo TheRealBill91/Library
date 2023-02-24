@@ -15,30 +15,33 @@
       <button class="addBookModal">Add Book</button>
       <div class="form-modal-background"></div>
       <div class="form-container">
+        <form id="form">
+            <fieldset>
+              <legend>Enter your book's information</legend>
+              <label for="title">Book Title</label>
+              <input type="text" id="title" name="title" />
+    
+              <label for="author">Author</label>
+              <input type="text" id="author" name="author" />
+    
+              <label for="pages">Number of pages</label>
+              <input type="number" id="pages" name="num-of-pages" />
+              <div class="checkbox">
+                <label for="read">Have you read it?</label>
+                <input class="checkbox" type="checkbox" name="read" id="read" />
+                <span class="checkmark"></span>
+              </div>
+    
+              <button type="submit">Submit</button>
+            </fieldset>
+          </form>
         <button class="close-modal">X</button>
       </div>
-      <form id="form">
-        <fieldset>
-          <legend>Enter your book's information</legend>
-            <label for="title">Book Title</label>
-            <input type="text" id="title" name="title" />
+      
 
-            <label for="author">Author</label>
-            <input type="text" id="author" name="author" />
-
-            <label for="pages">Number of pages</label>
-            <input type="number" id="pages" name="num-of-pages" />
-          <div class="checkbox">
-            <label for="read">Have you read it?</label>
-            <input class="checkbox" type="checkbox" name="read" id="read" />
-            <span class="checkmark"></span>
-          </div>
-
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
-
-      <div class="bookDisplayContainer"></div>
+      <div class="bookDisplayContainer">
+      
+      </div>
     </main>
   </body>
 </html>
