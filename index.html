@@ -1,60 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book-Library</title>
     <script src="./app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Personal Library</h1>
+      <h1>Personal Library</h1>
     </header>
+    <div class="form-modal-background"></div>
     <main>
-        <div class="addBookButtonContainer">
-            <button class="addBookModal">Add Book</button>
-        </div>
-        <div class="form-modal-background"></div>
-        <div class="form-container">
-            <form id="form">
-                <fieldset>
-                    <div class="legend">
-                        <legend>Enter your book's information</legend>
-                    </div>
-                    <div class="fieldset-body">
-                        <label for="title">Book Title
-                            <input type="text" id="title" name="title" />
-                        </label>
+      <div class="addBookButtonContainer">
+        <button class="addBookModal">Add Book</button>
+      </div>
 
-                        <label for="author">Author
-                            <input type="text" id="author" name="author" />
-                        </label>
+      <div class="form-container">
+        <form id="form">
+          <fieldset>
+            <div class="legend">
+              <legend>Enter your book's information</legend>
+            </div>
+            <div class="fieldset-body">
+              <label for="title"
+                >Book Title
+                <input type="text" id="title" name="title" />
+              </label>
 
-                        <label for="pages">Number of pages
-                            <input type="number" id="pages" name="num-of-pages" />
-                        </label>
+              <label for="author"
+                >Author
+                <input type="text" id="author" name="author" />
+              </label>
 
-                        <div class="checkbox">
-                            <label for="read">Have you read it?
-                                <input class="checkbox" type="checkbox" name="read" id="read" />
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
+              <label for="pages"
+                >Number of pages
+                <input type="number" id="pages" name="num-of-pages" />
+              </label>
 
-                        <button type="submit">Submit</button>
-                    </div>
-                </fieldset>
-            </form>
-            <button class="close-modal">X</button>
-        </div>
+              <div class="checkbox">
+                <label for="read"
+                  >Have you read it?
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="read"
+                    id="read"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
 
-        <div class="bookDisplayContainer"></div>
+              <button type="submit">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+        <button class="close-modal">X</button>
+      </div>
+
+      <div class="bookDisplayContainer"></div>
     </main>
-</body>
-
+    <footer>
+      <p>Created by: TheRealBill91</p>
+    </footer>
+  </body>
 </html>

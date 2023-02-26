@@ -36,21 +36,26 @@ function addSampleBookObject() {
   myLibrary.push(sampleBookObject);
 }
 
-Book.prototype.info = function () {
+Book.prototype.info = function (event) {
   if (this.read === "Not Read") {
     this.read = "Read";
+    event.target.classList.add("read");
   } else {
     this.read = "Not Read";
+    event.target.classList.add("not-read");
   }
   return `${this.read}`;
 };
 
 function getRadioButtonValue() {
   const checkbox = document.getElementById("read");
+  const buttonReadStatus = document.querySelector(".read-status");
   if (checkbox.checked) {
     radioButtonValue = "Read";
+    buttonReadStatus.classList.add("read");
   } else {
     radioButtonValue = "Not Read";
+    buttonReadStatus.classList.add("not-read");
   }
   return radioButtonValue;
 }
@@ -101,7 +106,10 @@ function displayEachBook() {
         cardDiv.appendChild(p);
       } else if (j === 3) {
         button = document.createElement("button");
-        button.classList.add("read-status");
+         
+        // Do ternary operator to see if book value === Read
+        // If so, set the button class to "read-status.read" 
+
         button.setAttribute("data-index", `${i}`);
         button.textContent = bookValue;
         cardDiv.appendChild(button);
@@ -127,6 +135,7 @@ function displayEachBook() {
 }
 
 addSampleBookObject();
+
 displayEachBook();
 // Queries all book delete buttons on page load (or reload)
 removeButtons = document.querySelectorAll(".remove-button");
@@ -162,8 +171,9 @@ function changeBookReadStatus(event) {
   /* console.log(event.target.textContent) */
   for (let i = 0; i < myLibrary.length; i++) {
     if (i === buttonIndex) {
-      let newReadStatus = myLibrary[i].info();
+      let newReadStatus = myLibrary[i].info(event);
       event.target.textContent = newReadStatus;
+      // event.target.classList.toggle("read");
       break;
     }
   }
@@ -191,7 +201,6 @@ function closeBookFormModal() {
   formModalBackground.classList.toggle("show-modal-container");
   formContainer.classList.toggle("show-modal");
 }
-
 
 // Event listener on form modal bg
 function closeModalWithBackgroundListen() {

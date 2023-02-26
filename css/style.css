@@ -1,5 +1,22 @@
 :root {
   --default-font-size: 1.2rem;
+  --default-font-family: "Golos Text", "Segoe UI", Tahoma, "Geneva", Verdana,
+    sans-serif;
+}
+
+button {
+  font-family: var(
+    --default-font-family,
+    "Segoe UI",
+    Tahoma,
+    "Geneva",
+    Verdana,
+    sans-serif
+  );
+}
+
+button:hover {
+  color: #8d8d8d;
 }
 
 body {
@@ -8,7 +25,14 @@ body {
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
-  height: 100vh;
+  font-family: var(
+    --default-font-family,
+    "Segoe UI",
+    Tahoma,
+    "Geneva",
+    Verdana,
+    sans-serif
+  );
 }
 
 header {
@@ -20,7 +44,7 @@ header {
   box-shadow: 0px 3px 8px 3px #c9c9c99c;
 }
 
-header>h1 {
+header > h1 {
   color: whitesmoke;
 }
 
@@ -28,11 +52,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
   position: relative;
   margin: 0;
-  padding: 12px;
+  padding: 0px 16px;
+  margin-bottom: 20px;
+  flex: 1 auto;
 }
 
 .addBookButtonContainer {
@@ -60,7 +86,6 @@ main {
   z-index: 1;
   background-color: grey;
   position: absolute;
-  padding: 16px;
   width: 100%;
   height: 100vh;
   opacity: 70%;
@@ -74,17 +99,17 @@ main {
 .form-container.show-modal {
   z-index: 1;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   display: grid;
   /* width: 200px; */
-  padding: 14px;
+  padding: 8px 14px;
   box-shadow: 0px 6px 4px 4px rgba(155, 155, 155, 0.322);
   border-radius: 12px 12px;
-  grid-template-columns: 350px 30px;
-  grid-template-rows: 40vh;
+  grid-template-columns: 360px 32px;
+  grid-template-rows: 65vh;
 }
 
-.form-container>button {
+.form-container > button {
   font-weight: 700;
 }
 
@@ -104,20 +129,21 @@ form.show-modal {
   justify-content: center;
   align-items: center;
   z-index: 1;
-  background-color: #f9f9f9;
+  background-color: white;
   position: absolute;
   transition: 0.1s ease-in;
   animation: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   grid-column-start: 1;
   grid-column-end: 2;
   place-self: center;
-  width: 100%;
+  width: 90%;
+  height: 65vh;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .checkbox label {
@@ -152,7 +178,7 @@ button.close-modal:active {
   transform: scale(1.01);
 }
 
-form>fieldset {
+form > fieldset {
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -164,7 +190,7 @@ form>fieldset {
   flex: 1;
 }
 
-fieldset>label:first-of-type {
+fieldset > label:first-of-type {
   margin-top: 8px;
 }
 
@@ -178,7 +204,10 @@ fieldset>label:first-of-type {
 legend {
   display: flex;
   gap: 8px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  /* transform: scale( 1,2); */
+  /* width: 90%; */
+  font-weight: 700;
 }
 
 button.addBookModal {
@@ -190,7 +219,6 @@ button.addBookModal {
   width: 130px;
   font-size: 1.3rem;
   border: none;
-
 }
 
 button.addBookModal:active,
@@ -200,43 +228,67 @@ button.addBookModal:hover {
 }
 
 button[type="submit"] {
-  height: 25px;
+  height: 32px;
   font-size: 0.8rem;
+  background: lightgray;
+  /* width: 90%; */
+  border: 2px solid black;
+  border: none;
+  color: black;
+}
+
+button[type="submit"]:hover {
+  color: black;
+  background-color: rgb(200, 200, 200);
 }
 
 .bookDisplayContainer {
   flex-wrap: wrap;
   gap: 24px;
   width: 80vw;
-  height: 70vh;
   /* outline: 1px solid black; */
-  /* padding: 20px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 12px;
 }
 
-.bookDisplayContainer>div {
+.bookDisplayContainer > div {
   /* outline: 1px solid black; */
-  height: 225px;
+  height: 270px;
   padding: 20px;
   /* width: 31%; */
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   font-size: 1.3rem;
   gap: 16px;
-  flex: 0 1 auto;
   background: #d9d9d94f;
   border-radius: 12px 12px;
-  box-shadow: 0px 5px 6px 3px #d2d2d259;
+  box-shadow: 2px 4px 4px 0px #adadad59;
 }
 
-.bookDisplayContainer>div>p {
+.bookDisplayContainer > div > p {
   margin: 0;
 }
 
-.bookDisplayContainer>div>button {
-  width: 70%;
+.bookDisplayContainer > div > button {
+  width: 60%;
+  background-color: white;
+  border: none;
+  box-shadow: 2px 2px 4px 0px #80808070;
+  height: 30px;
+}
+
+.bookDisplayContainer .read-status.not-read {
+  background-color: lightcoral;
+  color: white;
+}
+
+.bookDisplayContainer .read-status.read {
+  width: 60%;
+  background-color: lightgreen;
+  color: white;
 }
 
 input[type="checkbox"]:before {
@@ -284,4 +336,12 @@ input:not([type="checkbox"]) {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+footer {
+  width: 100vw;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
