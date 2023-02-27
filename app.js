@@ -55,7 +55,7 @@ function getRadioButtonValue() {
     buttonReadStatus.classList.add("read");
   } else {
     radioButtonValue = "Not Read";
-    buttonReadStatus.classList.add("not-read");
+    /* buttonReadStatus.classList.add("not-read"); */
   }
   return radioButtonValue;
 }
@@ -106,7 +106,7 @@ function displayEachBook() {
         cardDiv.appendChild(p);
       } else if (j === 3) {
         button = document.createElement("button");
-         
+
         // Do ternary operator to see if book value === Read
         // If so, set the button class to "read-status.read" 
 
