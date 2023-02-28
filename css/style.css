@@ -219,6 +219,7 @@ button.addBookModal {
   width: 130px;
   font-size: 1.3rem;
   border: none;
+  transition: 0.1s ease-in-out;
 }
 
 button.addBookModal:active,
@@ -235,6 +236,7 @@ button[type="submit"] {
   border: 2px solid black;
   border: none;
   color: black;
+  transition: 0.1s ease-in-out;
 }
 
 button[type="submit"]:hover {

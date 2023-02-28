@@ -107,8 +107,9 @@ function displayEachBook() {
       } else if (j === 3) {
         button = document.createElement("button");
 
+        bookValue === "Read"
         // Do ternary operator to see if book value === Read
-        // If so, set the button class to "read-status.read" 
+        // If so, set the button class to "read-status.read"
 
         button.setAttribute("data-index", `${i}`);
         button.textContent = bookValue;
