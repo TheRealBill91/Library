@@ -103,9 +103,10 @@ main {
   display: grid;
   /* width: 200px; */
   padding: 8px 14px;
+  height: 73vh;
   box-shadow: 0px 6px 4px 4px rgba(155, 155, 155, 0.322);
   border-radius: 12px 12px;
-  grid-template-columns: 360px 32px;
+  grid-template-columns: 343px 32px;
   grid-template-rows: 65vh;
 }
 
@@ -135,9 +136,9 @@ form.show-modal {
   animation: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   grid-column-start: 1;
   grid-column-end: 2;
-  place-self: center;
+  place-self: flex-start;
   width: 90%;
-  height: 65vh;
+  height: 69vh;
 }
 
 label {
@@ -286,12 +287,24 @@ button[type="submit"]:hover {
 .bookDisplayContainer .read-status.not-read {
   background-color: lightcoral;
   color: white;
+  transition: 0.1s ease-in-out;
+}
+
+.bookDisplayContainer .read-status.not-read:hover {
+  background-color: rgb(239, 148, 148);
+  color: rgb(246, 246, 246);
 }
 
 .bookDisplayContainer .read-status.read {
   width: 60%;
   background-color: lightgreen;
   color: white;
+  transition: 0.1s ease-in-out;
+}
+
+.bookDisplayContainer .read-status.read:hover {
+  background-color: rgb(183, 232, 183);
+  color: rgb(241, 241, 241);
 }
 
 input[type="checkbox"]:before {
