@@ -39,10 +39,12 @@ function addSampleBookObject() {
 Book.prototype.info = function (event) {
   if (this.read === "Not Read") {
     this.read = "Read";
-    event.target.classList.add("read");
+    event.target.classList.remove("read-status", "not-read")
+    event.target.classList.add("read-status", "read");
   } else {
     this.read = "Not Read";
-    event.target.classList.add("not-read");
+    event.target.classList.remove("read-status", "read")
+    event.target.classList.add("read-status", "not-read");
   }
   return `${this.read}`;
 };
@@ -108,8 +110,8 @@ function displayEachBook() {
         button = document.createElement("button");
 
         bookValue === "Read"
-        // Do ternary operator to see if book value === Read
-        // If so, set the button class to "read-status.read"
+          ? button.classList.add("read-status", "read")
+          : button.classList.add("read-status", "not-read");
 
         button.setAttribute("data-index", `${i}`);
         button.textContent = bookValue;
