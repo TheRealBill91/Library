@@ -26,10 +26,11 @@ function Book(title, author, pages, read, removeBook) {
 const myLibrary = [];
 
 function addSampleBookObject() {
+  let pages = "200";
   const sampleBookObject = new Book(
     "Expert Web Dev",
     "John Appleseed",
-    "200",
+    `${pages} pages`,
     "Not Read",
     this.removeBook
   );
@@ -69,7 +70,7 @@ function addBookToLibrary(event) {
   event.preventDefault();
   let inputValueOne = titleInput.value;
   let inputValueTwo = authorInput.value;
-  let inputValueThree = pagesInput.value;
+  let inputValueThree = `${pagesInput.value} pages`;
   radioButtonValue = getRadioButtonValue();
   deleteButton = this.removeBook;
 
