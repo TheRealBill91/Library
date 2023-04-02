@@ -5,14 +5,12 @@
 }
 
 button {
-  font-family: var(
-    --default-font-family,
-    "Segoe UI",
-    Tahoma,
-    "Geneva",
-    Verdana,
-    sans-serif
-  );
+  font-family: var(--default-font-family,
+      "Segoe UI",
+      Tahoma,
+      "Geneva",
+      Verdana,
+      sans-serif);
 }
 
 button:hover {
@@ -25,14 +23,12 @@ body {
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: var(
-    --default-font-family,
-    "Segoe UI",
-    Tahoma,
-    "Geneva",
-    Verdana,
-    sans-serif
-  );
+  font-family: var(--default-font-family,
+      "Segoe UI",
+      Tahoma,
+      "Geneva",
+      Verdana,
+      sans-serif);
 }
 
 header {
@@ -44,7 +40,7 @@ header {
   box-shadow: 0px 3px 8px 3px #c9c9c99c;
 }
 
-header > h1 {
+header>h1 {
   color: whitesmoke;
 }
 
@@ -90,6 +86,8 @@ main {
   height: 100vh;
   opacity: 70%;
   transition: 0.1s ease-in;
+  backdrop-filter: blur(29px);
+  --webkit-backdrop-filer: blur(29px);
 }
 
 .form-container {
@@ -103,14 +101,16 @@ main {
   display: grid;
   /* width: 200px; */
   padding: 8px 14px;
-  height: 73vh;
+  /* height: 73vh; */
   box-shadow: 0px 6px 4px 4px rgba(155, 155, 155, 0.322);
   border-radius: 12px 12px;
   grid-template-columns: 343px 32px;
-  grid-template-rows: 65vh;
+  grid-template-rows: 51vh;
+  justify-content: center;
+  top: 20%;
 }
 
-.form-container > button {
+.form-container>button {
   font-weight: 700;
 }
 
@@ -137,8 +137,8 @@ form.show-modal {
   grid-column-start: 1;
   grid-column-end: 2;
   place-self: flex-start;
-  width: 90%;
-  height: 69vh;
+  width: 100%;
+  align-self: center;
 }
 
 label {
@@ -174,12 +174,11 @@ button.close-modal {
 button.close-modal:hover,
 button.close-modal:active {
   /* align-self: flex-end; */
-  background-color: lightgray;
+  background-color: rgb(179, 179, 179);
   color: black;
-  transform: scale(1.01);
 }
 
-form > fieldset {
+form>fieldset {
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -191,7 +190,7 @@ form > fieldset {
   flex: 1;
 }
 
-fieldset > label:first-of-type {
+fieldset>label:first-of-type {
   margin-top: 8px;
 }
 
@@ -255,7 +254,7 @@ button[type="submit"]:hover {
   padding: 12px;
 }
 
-.bookDisplayContainer > div {
+.bookDisplayContainer>div {
   /* outline: 1px solid black; */
   height: 270px;
   padding: 20px;
@@ -271,11 +270,11 @@ button[type="submit"]:hover {
   box-shadow: 2px 4px 4px 0px #adadad59;
 }
 
-.bookDisplayContainer > div > p {
+.bookDisplayContainer>div>p {
   margin: 0;
 }
 
-.bookDisplayContainer > div > button {
+.bookDisplayContainer>div>button {
   width: 60%;
   background-color: white;
   border: none;
@@ -346,6 +345,24 @@ input[type="checkbox"]:checked {
 input:not([type="checkbox"]) {
   background-color: #ededed;
   border: none;
+}
+
+input:not([type="checkbox"]):focus:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+}
+
+.error.active {
+  padding: 0.3em;
 }
 
 .checkbox {

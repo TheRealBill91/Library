@@ -1,6 +1,9 @@
 let titleInput = document.getElementById("title");
+const titleError = document.querySelector("#title + span.error");
 let authorInput = document.getElementById("author");
+const authorError = document.querySelector("#author + span.error");
 let pagesInput = document.getElementById("pages");
+const pagesInputError = document.querySelector("#pages + span.error");
 // let checkedInput = document.getElementById("read");
 const bookDisplayContainer = document.querySelector(".bookDisplayContainer");
 let radioButtonValue;
@@ -40,11 +43,11 @@ function addSampleBookObject() {
 Book.prototype.info = function (event) {
   if (this.read === "Not Read") {
     this.read = "Read";
-    event.target.classList.remove("read-status", "not-read")
+    event.target.classList.remove("read-status", "not-read");
     event.target.classList.add("read-status", "read");
   } else {
     this.read = "Not Read";
-    event.target.classList.remove("read-status", "read")
+    event.target.classList.remove("read-status", "read");
     event.target.classList.add("read-status", "not-read");
   }
   return `${this.read}`;
@@ -66,6 +69,17 @@ function getRadioButtonValue() {
 form.addEventListener("submit", addBookToLibrary);
 
 function addBookToLibrary(event) {
+  if (
+    !titleInput.validity.valid ||
+    !authorInput.validity.valid ||
+    !pagesInput.validity.valid
+  ) {
+    checkTitleInput();
+    checkAuthorInput();
+    checkNumOfPages();
+    event.preventDefault();
+    return;
+  }
   // Prevent default form submission behavior to avoid sending data to a server
   event.preventDefault();
   let inputValueOne = titleInput.value;
@@ -219,3 +233,87 @@ function closeModalWithBackgroundListen() {
 function closeModalWithBackground() {
   closeBookFormModal();
 }
+
+titleInput.addEventListener("input", (event) => {
+  if (titleInput.validity.valid) {
+    titleError.textContent = "";
+    titleError.className = "error";
+  } else {
+    checkTitleInput();
+  }
+});
+
+authorInput.addEventListener("input", (event) => {
+  if (authorInput.validity.valid) {
+    authorError.textContent = "";
+    authorError.className = "error";
+  } else {
+    checkAuthorInput();
+  }
+});
+
+pagesInput.addEventListener("input", (event) => {
+  if (pagesInput.validity.valid) {
+    pagesInputError.textContent = "";
+    pagesInputError.className = "error";
+  } else {
+    checkNumOfPages();
+  }
+});
+
+/* const showFormError = () => {
+  checkTitleInput();
+  checkAuthorInput();
+  checkNumOfPages();
+}; */
+
+const checkTitleInput = () => {
+  if (titleInput.validity.valueMissing) {
+    titleError.textContent = "You must enter a title";
+  } else if (titleInput.validity.tooShort) {
+    titleError.textContent = `Book title should be atleast ${titleInput.minLength} characters, you
+    entered ${titleInput.value.length}.`;
+  } else if (titleInput.validity.tooLong) {
+    titleError.textContent = `Book title should be no more than ${titleInput.maxLength} characters,
+    you entered ${titleInput.value.length}`;
+  }
+
+  if (!titleInput.validity.valid) {
+    titleError.className = "error active";
+  }
+};
+
+const checkAuthorInput = () => {
+  if (authorInput.validity.valueMissing) {
+    authorError.textContent = "You must enter an author";
+  } else if (authorInput.validity.tooShort) {
+    authorError.textContent = `Book author should be atleast ${authorInput.minLength} characters, you
+    entered ${authorInput.value.length}.`;
+  } else if (authorInput.validity.tooLong) {
+    authorError.textContent = `Book title should be no more than ${authorInput.maxLength} characters,
+    you entered ${authorInput.value.length}`;
+  }
+
+  if (!authorInput.validity.valid) {
+    authorError.className = "error active";
+  }
+};
+
+const checkNumOfPages = () => {
+  if (pagesInput.validity.valueMissing) {
+    pagesInputError.textContent =
+      "You must enter the number of pages in the book";
+  } else if (pagesInput.validity.typeMismatch) {
+    pagesInputError.textContent = "Input must be numbers (not text)";
+  } else if (pagesInput.validity.rangeUnderflow) {
+    pagesInputError.textContent = `The number of pages should be atleast ${pagesInput.min}, 
+    you entered ${pagesInput.value}`;
+  } else if (pagesInput.validity.rangeOverflow) {
+    pagesInputError.textContent = `The number of pages should be no more than ${pagesInput.max},
+    you entered ${pagesInput.value}`;
+  }
+
+  if (!pagesInput.validity.valid) {
+    pagesInputError.className = "error active";
+  }
+};
