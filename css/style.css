@@ -5,12 +5,14 @@
 }
 
 button {
-  font-family: var(--default-font-family,
-      "Segoe UI",
-      Tahoma,
-      "Geneva",
-      Verdana,
-      sans-serif);
+  font-family: var(
+    --default-font-family,
+    "Segoe UI",
+    Tahoma,
+    "Geneva",
+    Verdana,
+    sans-serif
+  );
 }
 
 button:hover {
@@ -23,12 +25,16 @@ body {
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: var(--default-font-family,
-      "Segoe UI",
-      Tahoma,
-      "Geneva",
-      Verdana,
-      sans-serif);
+  font-family: var(
+    --default-font-family,
+    "Segoe UI",
+    Tahoma,
+    "Geneva",
+    Verdana,
+    sans-serif
+  );
+
+  position: relative;
 }
 
 header {
@@ -40,7 +46,7 @@ header {
   box-shadow: 0px 3px 8px 3px #c9c9c99c;
 }
 
-header>h1 {
+header > h1 {
   color: whitesmoke;
 }
 
@@ -79,14 +85,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
-  background-color: grey;
+  z-index: 3;
+  background-color: #8080803d;
   position: absolute;
   width: 100%;
   height: 100vh;
-  opacity: 70%;
+  opacity: 1;
   transition: 0.1s ease-in;
-  backdrop-filter: blur(29px);
+  backdrop-filter: blur(5px);
   --webkit-backdrop-filer: blur(29px);
 }
 
@@ -101,16 +107,19 @@ main {
   display: grid;
   /* width: 200px; */
   padding: 8px 14px;
-  /* height: 73vh; */
+  height: fit-content;
   box-shadow: 0px 6px 4px 4px rgba(155, 155, 155, 0.322);
   border-radius: 12px 12px;
   grid-template-columns: 343px 32px;
-  grid-template-rows: 51vh;
   justify-content: center;
-  top: 20%;
+  /* top: 20%; */
+  grid-template-rows: 70vh;
+  /* justify-items: stretch; */
+  /* place-content: stretch; */
+  /* grid-auto-rows: max-content; */
 }
 
-.form-container>button {
+.form-container > button {
   font-weight: 700;
 }
 
@@ -178,7 +187,7 @@ button.close-modal:active {
   color: black;
 }
 
-form>fieldset {
+form > fieldset {
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -190,7 +199,7 @@ form>fieldset {
   flex: 1;
 }
 
-fieldset>label:first-of-type {
+fieldset > label:first-of-type {
   margin-top: 8px;
 }
 
@@ -254,7 +263,7 @@ button[type="submit"]:hover {
   padding: 12px;
 }
 
-.bookDisplayContainer>div {
+.bookDisplayContainer > div {
   /* outline: 1px solid black; */
   height: 270px;
   padding: 20px;
@@ -270,11 +279,11 @@ button[type="submit"]:hover {
   box-shadow: 2px 4px 4px 0px #adadad59;
 }
 
-.bookDisplayContainer>div>p {
+.bookDisplayContainer > div > p {
   margin: 0;
 }
 
-.bookDisplayContainer>div>button {
+.bookDisplayContainer > div > button {
   width: 60%;
   background-color: white;
   border: none;
