@@ -206,7 +206,7 @@ function showBookFormModal() {
   form.classList.toggle("show-modal");
   formModalBackground.classList.toggle("show-modal-container");
   formContainer.classList.toggle("show-modal");
-  closeModalWithBackgroundListen();
+  closeBookModalListen();
 }
 
 closeBookModalListen();
@@ -218,20 +218,6 @@ function closeBookFormModal() {
   form.classList.toggle("show-modal");
   formModalBackground.classList.toggle("show-modal-container");
   formContainer.classList.toggle("show-modal");
-}
-
-// Event listener on form modal bg
-function closeModalWithBackgroundListen() {
-  // for event listener to close modal using modal bg
-  const activeFormModalBackground = document.querySelector(
-    ".form-modal-background"
-  );
-  activeFormModalBackground.addEventListener("click", closeModalWithBackground);
-}
-
-// function called when user presses anywhere on form modal background
-function closeModalWithBackground() {
-  closeBookFormModal();
 }
 
 titleInput.addEventListener("input", (event) => {
